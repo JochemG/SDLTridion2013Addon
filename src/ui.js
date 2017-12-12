@@ -1,3 +1,3 @@
-function test() {
-    alert('here');
-}
+define({
+    test: function () {alert('here');}
+});

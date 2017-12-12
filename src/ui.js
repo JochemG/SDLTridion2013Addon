@@ -1,5 +1,1 @@
-define(function () {
-    return function print(msg) {
-        console.log(msg);
-    };
-});
+alert('In UI.js');

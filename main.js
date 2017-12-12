@@ -1,3 +1,3 @@
-require(['ui'], function(ui) {
+require(['src/ui'], function(ui) {
     alert('loaded');
 });

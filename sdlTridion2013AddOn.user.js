@@ -20,13 +20,13 @@
     //
     function runRequireJs() {
         require.config({
-            baseUrl: 'https://raw.githubusercontent.com/JochemG/SDLTridion2013Addon/master/'
+            baseUrl: 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/'
         });
         require(['main']);
     }
     if (typeof window.requirejs === 'undefined') {
-        var s = d.createElement('script');
-        s.src = 'https://raw.githubusercontent.com/JochemG/SDLTridion2013Addon/master/require.js';
+        var s = window.document.createElement('script');
+        s.src = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/require.js';
         s.addEventListener('load', function() {
             runRequireJs();
         });

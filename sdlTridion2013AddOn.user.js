@@ -5,7 +5,6 @@
 // @description  try to take over the world!
 // @author       You
 // @match        http://*tridion*
-// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js
 // @grant        none
 // @run-at document-end
 // ==/UserScript==
@@ -15,4 +14,24 @@
         return;
     }
 
+
+    //
+    // RequireJS over here!
+    //
+    function runRequireJs() {
+        require.config({
+            baseUrl: 'https://raw.githubusercontent.com/JochemG/SDLTridion2013Addon/master/'
+        });
+        require(['main']);
+    }
+    if (typeof window.requirejs === 'undefined') {
+        var s = d.createElement('script');
+        s.src = 'https://raw.githubusercontent.com/JochemG/SDLTridion2013Addon/master/require.js';
+        s.addEventListener('load', function() {
+            runRequireJs();
+        });
+        window.document.body.appendChild(s);
+    } else {
+        runRequireJs();
+    }
 })();

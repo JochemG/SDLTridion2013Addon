@@ -1,0 +1,16 @@
+{
+  "name": "sdl-tridion-2013-add-on",
+  "version": "1.0.0",
+  "description": "A collection of functionality that our company needs, but isn't provided by SDL Tridion",
+  "main": "sdlTridion2013AddOn.user.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JochemG/SDLTridion2013Addon.git"
+  },
+  "author": "Jochem Geussens",
+  "license": "GNUv3",
+  "bugs": {
+    "url": "https://github.com/JochemG/SDLTridion2013Addon/issues"
+  },
+  "homepage": "https://github.com/JochemG/SDLTridion2013Addon#readme"
+}

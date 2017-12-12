@@ -1,1 +1,3 @@
-alert('In UI.js');
+function test() {
+    alert('here');
+}

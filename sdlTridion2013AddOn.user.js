@@ -14,27 +14,36 @@
         return;
     }
 
+    function tridionLoaded() {
+        return window.document.getElementsByTagName('div').length > 1;
+    }
 
-    //
-    // RequireJS over here!
-    //
-    var gitBaseUrl = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/';
-    var localBaseUrl = 'http://127.0.0.1:8000/';
-    var baseUrl = localBaseUrl;
-    function runRequireJs() {
-        require.config({
-            baseUrl: baseUrl
-        });
-        require(['main']);
-    }
-    if (typeof window.requirejs === 'undefined') {
-        var s = window.document.createElement('script');
-        s.src = baseUrl + 'require.js';
-        s.addEventListener('load', function() {
-            runRequireJs();
-        });
-        window.document.body.appendChild(s);
-    } else {
-        runRequireJs();
-    }
+    var intervalHandle = window.setInterval(function() {
+        if (!tridionLoaded()) return;
+        window.clearInterval(intervalHandle);
+        //
+        // RequireJS over here!
+        //
+        var gitBaseUrl = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/';
+        var localBaseUrl = 'http://127.0.0.1:8000/';
+        var baseUrl = localBaseUrl;
+        function runRequireJs(GMRequire) {
+            window.require = window.require || GMRequire;
+            window.require.config({
+                baseUrl: baseUrl
+            });
+            window.require(['main']);
+        }
+
+        if (!window.require) {
+            var s = window.document.createElement('script');
+            s.src = baseUrl + 'require.js';
+            s.addEventListener('load', function() {
+                runRequireJs(require);
+            });
+            window.document.head.appendChild(s);
+        } else {
+            runRequireJs(window.require);
+        }
+    }, 100);
 })();

@@ -12,5 +12,6 @@
   "bugs": {
     "url": "https://github.com/JochemG/SDLTridion2013Addon/issues"
   },
-  "homepage": "https://github.com/JochemG/SDLTridion2013Addon#readme"
+  "homepage": "https://github.com/JochemG/SDLTridion2013Addon#readme",
+  "dependencies": {}
 }

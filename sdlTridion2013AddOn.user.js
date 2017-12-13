@@ -2,9 +2,9 @@
 // @name         SDL Tridion 2013 AddOn
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        http://*tridion*
+// @description  Extra functionality that Tridion doesn't offer out of the box.
+// @author       Jochem Geussens
+// @include      http://*tridion*
 // @grant        none
 // @run-at document-end
 // ==/UserScript==
@@ -18,15 +18,18 @@
     //
     // RequireJS over here!
     //
+    var gitBaseUrl = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/';
+    var localBaseUrl = 'http://127.0.0.1:8000/';
+    var baseUrl = localBaseUrl;
     function runRequireJs() {
         require.config({
-            baseUrl: 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/'
+            baseUrl: baseUrl
         });
         require(['main']);
     }
     if (typeof window.requirejs === 'undefined') {
         var s = window.document.createElement('script');
-        s.src = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/require.js';
+        s.src = baseUrl + 'require.js';
         s.addEventListener('load', function() {
             runRequireJs();
         });

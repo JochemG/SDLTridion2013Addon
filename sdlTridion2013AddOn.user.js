@@ -26,7 +26,7 @@
         //
         var gitBaseUrl = 'https://rawgit.com/JochemG/SDLTridion2013Addon/master/';
         var localBaseUrl = 'http://127.0.0.1:8000/';
-        var baseUrl = localBaseUrl;
+        var baseUrl = gitBaseUrl;
         function runRequireJs(GMRequire) {
             window.require = window.require || GMRequire;
             window.require.config({

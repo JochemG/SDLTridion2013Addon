@@ -48,19 +48,20 @@ function unfoldAll() {
 
 define({
     initUI: function(ui) {
+        var group = ui.createNewUIGroup('Embedded component folding');
         var enableFolding = window.document.createElement('button');
         enableFolding.addEventListener('click', enableFoldingClickAction);
         enableFolding.innerHTML = 'Enable embedded component folding';
-        ui.getUIContainer().appendChild(enableFolding);
+        group.appendChild(enableFolding);
 
         var foldAllBtn = window.document.createElement('button');
         foldAllBtn.addEventListener('click', foldAll);
         foldAllBtn.innerHTML = 'Fold all';
-        ui.getUIContainer().appendChild(foldAllBtn);
+        group.appendChild(foldAllBtn);
 
         var unfoldAllBtn = window.document.createElement('button');
         unfoldAllBtn.addEventListener('click', unfoldAll);
         unfoldAllBtn.innerHTML = 'Unfold all';
-        ui.getUIContainer().appendChild(unfoldAllBtn);
+        group.appendChild(unfoldAllBtn);
     }
 });

@@ -47,10 +47,18 @@ define({
         var group = document.createElement('div');
         group.style.width = '98%';
         group.style.border = '1px solid black';
-        group.style.margin = '10px 0';
+        group.style.margin = '12px 0';
         group.style.boxSizing = 'border-box';
         group.style.padding = '5px';
+        group.style.position = 'relative';
         myGmUIGroupsContainer.appendChild(group);
+
+        var containerLabel = window.document.createElement('label');
+        containerLabel.style.position = 'absolute';
+        containerLabel.style.top = '-13px';
+        containerLabel.innerHTML = groupName;
+        containerLabel.style.backgroundColor = 'red';
+        group.appendChild(containerLabel);
 
         return group;
     }
